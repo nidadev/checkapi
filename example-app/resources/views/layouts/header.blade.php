@@ -146,7 +146,7 @@ else
             var page_url = '' + APP_URL + '/profile';
             //alert(test);
             var formdata = $(this).serialize();
-           // alert(formdata);
+            // alert(formdata);
             $.ajax({
                 url: '{{ url("/api/login") }}',
                 type: "POST",
@@ -183,9 +183,10 @@ else
         $('#register').on('submit', function(event) {
             event.preventDefault();
             //alert('hi  hru');
-            jQuery.ajax({
+            var formdata = $(this).serialize();
+            $.ajax({
                 url: "{{ url('api/register') }}",
-                data: jQuery('#register').serialize(),
+                data: formdata,
                 type: 'POST',
                 success: function(data) {
                     //alert(data);
